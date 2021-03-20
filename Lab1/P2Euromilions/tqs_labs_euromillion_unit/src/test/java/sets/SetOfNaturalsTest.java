@@ -62,6 +62,10 @@ public class SetOfNaturalsTest {
     }
     
     // Aqui os testes de elementos duplicados e negativos de certa forma já estão testados com o bad array mas decidi colocar na mesma
+    @Test
+    public void intersectTest() {
+    	assertTrue(setB.intersects(setD));
+    }
     
     @Test
     public void size() {
