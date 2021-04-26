@@ -16,8 +16,8 @@ public class Dip {
 
     private SetOfNaturals numbers;
     private SetOfNaturals starts;
-    private static final int stars = 2;
-    private static final int otherNumbers = 5;
+    private static final int STARS = 2;
+    private static final int OTHERNUMBERS = 5;
 
 <span class="fc" id="L22">    public Dip() {</span>
 <span class="fc" id="L23">        numbers = new SetOfNaturals();</span>
@@ -27,7 +27,7 @@ public class Dip {
     public Dip(int[] arrayOfNumbers, int[] arrayOfStarts) {
 <span class="fc" id="L28">        this();</span>
 
-<span class="pc bpc" id="L30" title="1 of 4 branches missed.">        if (otherNumbers == arrayOfNumbers.length &amp;&amp; stars == arrayOfStarts.length) {</span>
+<span class="pc bpc" id="L30" title="1 of 4 branches missed.">        if (OTHERNUMBERS == arrayOfNumbers.length &amp;&amp; STARS == arrayOfStarts.length) {</span>
 <span class="fc" id="L31">            numbers.add(arrayOfNumbers);</span>
 <span class="fc" id="L32">            starts.add(arrayOfStarts);</span>
         } else {
@@ -48,47 +48,49 @@ public class Dip {
 <span class="fc" id="L48">        Random generator = new Random();</span>
 
 <span class="fc" id="L50">        Dip randomDip = new Dip();</span>
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (int i = 0; i &lt; otherNumbers; ) {</span>
-<span class="fc" id="L52">            int candidate = generator.nextInt(49) + 1;</span>
-<span class="pc bpc" id="L53" title="1 of 2 branches missed.">            if (!randomDip.getNumbersColl().contains(candidate)) {</span>
-<span class="fc" id="L54">                randomDip.getNumbersColl().add(candidate);</span>
-<span class="fc" id="L55">                i++;</span>
+<span class="fc" id="L51">        int i = 0;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        while (i != OTHERNUMBERS-1){</span>
+<span class="fc" id="L53">            int candidate = generator.nextInt(49) + 1;</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">            if (!randomDip.getNumbersColl().contains(candidate)) {</span>
+<span class="fc" id="L55">                randomDip.getNumbersColl().add(candidate);</span>
+<span class="fc" id="L56">                i++;</span>
             }
-<span class="fc" id="L57">        }</span>
-<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (int i = 0; i &lt; stars; ) {</span>
-<span class="fc" id="L59">            int candidate = generator.nextInt(9) + 1;</span>
-<span class="pc bpc" id="L60" title="1 of 2 branches missed.">            if (!randomDip.getStarsColl().contains(candidate)) {</span>
-<span class="fc" id="L61">                randomDip.getStarsColl().add(candidate);</span>
-<span class="fc" id="L62">                i++;</span>
+<span class="fc" id="L58">        }</span>
+<span class="fc" id="L59">        i = 0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        while (i != STARS-1){</span>
+<span class="fc" id="L61">            int candidate = generator.nextInt(9) + 1;</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">            if (!randomDip.getStarsColl().contains(candidate)) {</span>
+<span class="fc" id="L63">                randomDip.getStarsColl().add(candidate);</span>
+<span class="fc" id="L64">                i++;</span>
             }
-<span class="fc" id="L64">        }</span>
-<span class="fc" id="L65">        return randomDip;</span>
+<span class="fc" id="L66">        }</span>
+<span class="fc" id="L67">        return randomDip;</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L70">        int hash = 3;</span>
-<span class="nc" id="L71">        hash = 29 * hash + Objects.hashCode(this.numbers);</span>
-<span class="nc" id="L72">        hash = 29 * hash + Objects.hashCode(this.starts);</span>
-<span class="nc" id="L73">        return hash;</span>
+<span class="nc" id="L72">        int hash = 3;</span>
+<span class="nc" id="L73">        hash = 29 * hash + Objects.hashCode(this.numbers);</span>
+<span class="nc" id="L74">        hash = 29 * hash + Objects.hashCode(this.starts);</span>
+<span class="nc" id="L75">        return hash;</span>
     }
 
     @Override
     public boolean equals(Object obj) {
-<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (this == obj) {</span>
-<span class="nc" id="L79">            return true;</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L81">            return true;</span>
         }
-<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        if (obj == null) {</span>
-<span class="nc" id="L82">            return false;</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L84">            return false;</span>
         }
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
-<span class="nc" id="L85">            return false;</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L87">            return false;</span>
         }
-<span class="fc" id="L87">        final Dip other = (Dip) obj;</span>
-<span class="pc bpc" id="L88" title="1 of 2 branches missed.">        if (!Objects.equals(this.numbers, other.numbers)) {</span>
-<span class="nc" id="L89">            return false;</span>
+<span class="fc" id="L89">        final Dip other = (Dip) obj;</span>
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">        if (!Objects.equals(this.numbers, other.numbers)) {</span>
+<span class="nc" id="L91">            return false;</span>
         }
-<span class="fc" id="L91">        return Objects.equals(this.starts, other.starts);</span>
+<span class="fc" id="L93">        return Objects.equals(this.starts, other.starts);</span>
     }
 
 
@@ -99,17 +101,17 @@ public class Dip {
      * @return formatted string with data
      */
     public String format() {
-<span class="fc" id="L102">        StringBuilder sb = new StringBuilder();</span>
-<span class="fc" id="L103">        sb.append(&quot;N[&quot;);</span>
-<span class="fc bfc" id="L104" title="All 2 branches covered.">        for (int number : getNumbersColl()) {</span>
-<span class="fc" id="L105">            sb.append(String.format(&quot;%3d&quot;, number));</span>
-<span class="fc" id="L106">        }</span>
-<span class="fc" id="L107">        sb.append(&quot;] S[&quot;);</span>
-<span class="fc bfc" id="L108" title="All 2 branches covered.">        for (int star : getStarsColl()) {</span>
-<span class="fc" id="L109">            sb.append(String.format(&quot;%3d&quot;, star));</span>
-<span class="fc" id="L110">        }</span>
-<span class="fc" id="L111">        sb.append(&quot;]&quot;);</span>
-<span class="fc" id="L112">        return sb.toString();</span>
+<span class="fc" id="L104">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L105">        sb.append(&quot;N[&quot;);</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">        for (int number : getNumbersColl()) {</span>
+<span class="fc" id="L107">            sb.append(String.format(&quot;%3d&quot;, number));</span>
+<span class="fc" id="L108">        }</span>
+<span class="fc" id="L109">        sb.append(&quot;] S[&quot;);</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        for (int star : getStarsColl()) {</span>
+<span class="fc" id="L111">            sb.append(String.format(&quot;%3d&quot;, star));</span>
+<span class="fc" id="L112">        }</span>
+<span class="fc" id="L113">        sb.append(&quot;]&quot;);</span>
+<span class="fc" id="L114">        return sb.toString();</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

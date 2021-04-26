@@ -69,7 +69,7 @@ public class SetOfNaturalsTest {
     
     @Test
     public void size() {
-    	assertEquals(setB.size(),6);
+    	assertEquals(6,setB.size());
     }
     
     @Test
