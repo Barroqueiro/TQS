@@ -16,8 +16,8 @@ public class Dip {
 
     private SetOfNaturals numbers;
     private SetOfNaturals starts;
-    private static final int stars = 2;
-    private static final int otherNumbers = 5;
+    private static final int STARS = 2;
+    private static final int OTHERNUMBERS = 5;
 
     public Dip() {
         numbers = new SetOfNaturals();
@@ -27,7 +27,7 @@ public class Dip {
     public Dip(int[] arrayOfNumbers, int[] arrayOfStarts) {
         this();
 
-        if (otherNumbers == arrayOfNumbers.length && stars == arrayOfStarts.length) {
+        if (OTHERNUMBERS == arrayOfNumbers.length && STARS == arrayOfStarts.length) {
             numbers.add(arrayOfNumbers);
             starts.add(arrayOfStarts);
         } else {
@@ -48,14 +48,16 @@ public class Dip {
         Random generator = new Random();
 
         Dip randomDip = new Dip();
-        for (int i = 0; i < otherNumbers; ) {
+        int i = 0;
+        while (i != OTHERNUMBERS-1){
             int candidate = generator.nextInt(49) + 1;
             if (!randomDip.getNumbersColl().contains(candidate)) {
                 randomDip.getNumbersColl().add(candidate);
                 i++;
             }
         }
-        for (int i = 0; i < stars; ) {
+        i = 0;
+        while (i != STARS-1){
             int candidate = generator.nextInt(9) + 1;
             if (!randomDip.getStarsColl().contains(candidate)) {
                 randomDip.getStarsColl().add(candidate);

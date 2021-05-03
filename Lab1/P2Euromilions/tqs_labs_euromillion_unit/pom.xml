@@ -8,26 +8,35 @@
     <packaging>jar</packaging>
     <dependencies>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.4.0</version>
+        <scope>test</scope>
+    </dependency>
     </dependencies>
 
 
     <build>
         <plugins>
-            <!-- JUnit 5 requires Surefire version 2.22.1 or higher -->
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-            </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.22.0</version>
+            <configuration>
+                <excludes>
+                    <exclude>some test to exclude here</exclude>
+                </excludes>
+            </configuration>
+        </plugin>
+
             <plugin>
     <groupId>org.jacoco</groupId>
     <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.7.7.201606060606</version>
+    <version>0.8.4</version>
+    <configuration>
+    	<argLine>XX:MaxPermSize=1024m ${argLine}</argLine>
+    </configuration>
     <executions>
         <execution>
             <goals>
